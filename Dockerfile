@@ -11,6 +11,7 @@ ENV MALLOC_ARENA_MAX="2"
 # We'll install curl for later dependency package installation steps
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
+    wget \
     ca-certificates \
     curl \
     libpq5 \
@@ -55,7 +56,7 @@ RUN userhome=$(eval echo ~${DEVELOPER_USERNAME}) \
  && chown -R ${DEVELOPER_USERNAME}:${DEVELOPER_USERNAME} $userhome \
  && mkdir -p /workspaces/rails-google-cloud-quickstart \
  && chown -R ${DEVELOPER_USERNAME}:${DEVELOPER_USERNAME} /workspaces/rails-google-cloud-quickstart \
- && chown -R ${DEVELOPER_USERNAME}:${DEVELOPER_USERNAME} /usr/local/bundle/*
+ && chown -R ${DEVELOPER_USERNAME}:${DEVELOPER_USERNAME} /usr/local/bundle
 
 # Add the app's "bin/" directory to PATH:
 ENV PATH=/workspaces/rails-google-cloud-quickstart/bin:$PATH

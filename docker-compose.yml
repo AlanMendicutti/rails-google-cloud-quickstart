@@ -96,6 +96,7 @@ services:
     # leave a YML anchor in case we need to override or add more variables if
     # needed on each app service:
     environment: &app-env
+      USER: ${USER:-you}
       RAILS_LOG_TO_STDOUT: "true"
 
       DEBIAN_FRONTEND: dialog
